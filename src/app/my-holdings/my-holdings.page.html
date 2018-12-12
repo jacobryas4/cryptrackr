@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>MyHoldings</ion-title>
+    <ion-back-button defaultHref="home"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-item>
+      <ion-label position="fixed">Coin</ion-label>
+      <ion-input [(ngModel)]="newHolding.coinName"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label>Coin</ion-label>
+      <ion-select placeholder="Select One" [(ngModel)]="newHolding.coinName">
+        <ion-select-option value="BTCUSDT">Bitcoin</ion-select-option>
+        <ion-select-option value="EOSUSDT">EOS</ion-select-option>
+        <ion-select-option value="ETHUSDT">Ethereum</ion-select-option>
+        <ion-select-option value="BNBUSDT">Binance Coin</ion-select-option>
+        <ion-select-option value="ONTUSDT">Ontology</ion-select-option>
+        <ion-select-option value="BCCUSDT">Bitcoin Cash</ion-select-option>
+        <ion-select-option value="ADAUSDT">Cardano</ion-select-option>
+        <ion-select-option value="XRPUSDT">Ripple</ion-select-option>
+        <ion-select-option value="TUSDUSDT">TrueUSD</ion-select-option>
+        <ion-select-option value="TRXUSDT">TRON</ion-select-option>
+        <ion-select-option value="LTCUSDT">Litecoin</ion-select-option>
+        <ion-select-option value="ETCUSDT">Ethereum Classic</ion-select-option>
+        <ion-select-option value="IOTAUSDT">MIOTA</ion-select-option>
+        <ion-select-option value="ICXUSDT">ICON</ion-select-option>
+        <ion-select-option value="NEOUSDT">NEO</ion-select-option>
+        <ion-select-option value="VENUSDT">VeChain USD</ion-select-option>
+        <ion-select-option value="XLMUSDT">Stellar Lumens</ion-select-option>
+        <ion-select-option value="QTUMUSDT">Qtum</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Quantity</ion-label>
+      <ion-input [(ngModel)]="newHolding.quantity"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="addHolding()" expand="full" color="tertiary">Add Holding</ion-button>
+
+    <ion-list #mylist>
+
+      <ion-list-header>
+        <ion-label>My Holdings</ion-label>
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let holding of holdings">
+
+        <ion-item>
+          <ion-row>
+            <ion-col>
+              <div>
+                <p>{{ holding.coinName }}</p>
+                
+                  <p> {{ holding.quantity }}</p>
+                
+              </div>
+            </ion-col>
+            <ion-col>
+              
+                <div>
+                <p>Current Value: $ {{(getPrice(holding.coinName) * holding.quantity).toFixed(2)}}</p>
+                </div>
+             
+            </ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="updateHolding(holding)">Update</ion-item-option>
+          <ion-item-option (click)="deleteHolding(holding)">Delete</ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+</ion-content>

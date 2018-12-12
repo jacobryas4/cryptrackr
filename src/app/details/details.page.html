@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="tertiary" padding-top>
+
+    <ion-title>
+      
+        Details
+      
+    </ion-title>
+    <ion-back-button defaultHref="home"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+    <ng-container *ngFor="let name of nameLists; index as i">
+      <ng-container *ngIf="nameLists[i].symbol === this.myId">
+        <div text-center padding>
+          <h1 class="headline">{{nameLists[i].companyName}}</h1>
+        </div>
+
+        <ion-row margin-top>
+
+          <ion-col padding class="dataTitle">
+            <div>
+                Symbol:
+            </div>
+          </ion-col>
+          <ion-col padding text-center class="dataBorder">
+            <div>
+                {{nameLists[i].symbol}}
+            </div>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+            
+          <ion-col padding class="dataTitle">
+            <div>
+              Current Price:
+            </div>
+          </ion-col>
+          <ion-col padding text-center class="dataBorder">
+            <div>
+              ${{nameLists[i].latestPrice}}
+            </div>
+          </ion-col>
+            
+        </ion-row>
+
+        <ion-row>
+            
+          <ion-col padding class="dataTitle">
+            <div>
+              24 Hour High:
+            </div>
+          </ion-col>
+          <ion-col padding text-center class="dataBorder">
+            <div>
+                ${{nameLists[i].high}}
+            </div>
+          </ion-col>
+            
+        </ion-row>
+
+        <ion-row>
+            
+          <ion-col padding class="dataTitle">
+            <div>
+              24 Hour Low:
+            </div>
+          </ion-col>
+          <ion-col padding text-center class="dataBorder">
+            <div>
+              ${{nameLists[i].low}}
+            </div>
+          </ion-col>
+            
+        </ion-row>
+
+        <ion-row>
+            
+          <ion-col padding class="dataTitle">
+            <div>
+              Latest Volume:
+            </div>
+          </ion-col>
+          <ion-col padding text-center class="dataBorder">
+            <div>
+              {{nameLists[i].latestVolume}}
+            </div>
+          </ion-col>
+            
+        </ion-row>
+
+        <ion-row>
+            
+          <ion-col padding class="dataTitle">
+            <div>
+              Time Updated:
+            </div>
+          </ion-col>
+          <ion-col padding text-center class="dataBorder">
+            <div>
+              {{nameLists[i].latestTime}}
+            </div>
+          </ion-col>
+            
+        </ion-row>
+        
+      </ng-container>
+  </ng-container>
+    
+ 
+    
+
+</ion-content>
