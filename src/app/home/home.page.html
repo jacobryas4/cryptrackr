@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="tertiary" text-center>
       
     <ion-title>
       
@@ -12,7 +12,7 @@
 <ion-content padding>
   
     <ion-list>
-      <ion-item *ngFor="let name of nameLists; index as i"href="/details/{{name.symbol}}">
+      <ion-item *ngFor="let name of nameLists; index as i" href="/details/{{name.symbol}}">
         {{nameLists[i].companyName}}
       </ion-item>
       
@@ -25,9 +25,6 @@
       <ion-fab-list side="top">
         <ion-fab-button href="MyHoldings"><ion-icon name="contact"></ion-icon></ion-fab-button>
       </ion-fab-list>
-      <ion-fab-list side="start">
-          <ion-fab-button><ion-icon name="home"></ion-icon></ion-fab-button>
-        </ion-fab-list>
     </ion-fab>
 
 </ion-content>

@@ -20,6 +20,7 @@ export class MyHoldingsPage implements OnInit {
     public myId: String = '';
     public myprodID: String = '';
     public listInfo: Object = '';
+    
 
   @ViewChild('mylist')mylist: List;
 
